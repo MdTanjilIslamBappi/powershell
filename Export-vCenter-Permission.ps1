@@ -1,11 +1,11 @@
 Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$false
-$cred = Get-Credential
+#Get vCenter information:
 $vCenterHost = Read-Host "Enter vCenter Name:"
+#Get vCenter SSO Creds
+$cred = Get-Credential
 $VIServerShortName = $VIServer.Split(".")[0]
 $FileDate = Get-Date -Format FileDate  
 $ExportFileName = $VIServerShortName + "-permissions-" + $FileDate + ".csv"
-
-
 Connect-VIServer -Server $vCenterHost -Credential $cred
 $vms = Get-VM
 $output = New-Object System.Collections.ArrayList($null)
@@ -21,5 +21,4 @@ foreach ($vm in $vms)
     $vmpermission = [pscustomobject]@{VMName=$vm.Name;Role=$permissions.FormatPermission  -join ', '}
     [void]($output.Add($vmpermission))
 }
-
 $output | Export-csv $ExportFileName -NoTypeInformation
