@@ -30,5 +30,6 @@ $VMXfile | Out-File "D:\exportvmx.txt" -Append
 }
 
 ####################################################################################################################################################
-##### With help of this https://www.virtuallyboring.com/add-virtual-machines-vmx-to-inventory-using-powershell/
-##### The same output can be extracted using the RVTools, but this result can be combined with some other commands as well as per the blog
+##### With help of this https://www.virtuallyboring.com/add-virtual-machines-vmx-to-inventory-using-powershell/ ####################################
+##### The same output can be extracted using the RVTools, but this result can be combined with some other commands as well as per the blog #########
+####################################################################################################################################################
